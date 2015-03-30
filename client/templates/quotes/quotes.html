@@ -1,0 +1,30 @@
+<template name="QuotesAll">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">All Quotes</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button class="btn btn-primary pull-right" id="newQuote">
+                New Quote
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Quotes
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    {{> reactiveTable class="table table-bordered table-hover" settings=tableSettings}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

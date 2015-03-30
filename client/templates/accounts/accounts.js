@@ -23,6 +23,12 @@ Template.allAccounts.events({
     }
 });
 
+Template.AccountsView.events({
+    "click #createQuote" : function() {
+         Router.go('/quote/new/' + this.account._id);
+    }
+});
+
 Template.AccountsView.helpers({
     Contacts: function() {
         return Contacts;
@@ -41,6 +47,12 @@ Template.AccountsView.helpers({
 
 AutoForm.hooks({
     insertAccountForm: {
+        before: {
+          insert: function(doc) {
+              doc.owner = Meteor.userId();
+              this.result(doc);
+          }
+        },
         after: {
             insert: function(error, result) {
                 if (!error) {

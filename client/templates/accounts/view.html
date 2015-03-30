@@ -35,9 +35,9 @@
                                       data-name="name">{{ account.name }}</span>
                             </div>
                             <div class="col-lg-6">
-                                <h4>Fax</h4>
+                                <h4>Email</h4>
                                 <span class="col-lg-6 editable" data-type="text"
-                                      data-pk="{{ account.id }}" data-name="fax">{{ account.fax }}</span>
+                                      data-pk="{{ account.id }}" data-name="email">{{ account.email }}</span>
                             </div>
                         </div>
                         <!-- /.row -->
@@ -77,7 +77,9 @@
                                       data-pk="{{ account.id }}" data-name="accountTypes"></span>
                             </div>
                             <div class="col-lg-6">
-
+                                <h4>Fax</h4>
+                                <span class="col-lg-6 editable" data-type="text"
+                                      data-pk="{{ account.id }}" data-name="fax">{{ account.fax }}</span>
                             </div>
                         </div>
                     </div>
@@ -89,7 +91,7 @@
             <div class="col-lg-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Account Information
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Account Contacts
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">

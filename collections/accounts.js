@@ -39,6 +39,12 @@ Accounts.attachSchema(new SimpleSchema({
         optional: true,
         label: "Email",
         regEx: SimpleSchema.RegEx.Email
+    },
+    owner: {
+        type: String,
+        autoform: {
+            omit: true
+        }
     }
 }));
 
