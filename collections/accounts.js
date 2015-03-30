@@ -7,18 +7,21 @@ Accounts.attachSchema(new SimpleSchema({
         max: 200
     },
     phone: {
-        type: Number,
-        label: "Phone #",
-        optional: true
+        type: String,
+        label: "Phone #1",
+        optional: true,
+        regEx: SimpleSchema.RegEx.Phone
     },
     phone2: {
-        type: Number,
-        label: "Phone #",
+        type: String,
+        label: "Phone #2",
+        regEx: SimpleSchema.RegEx.Phone,
         optional: true
     },
     fax: {
-        type: Number,
+        type: String,
         label: "Fax",
+        regEx: SimpleSchema.RegEx.Phone,
         optional: true
     },
     billingAddress: {
@@ -42,11 +45,11 @@ Accounts.attachSchema(new SimpleSchema({
 Accounts.helpers({
    getOwner : function() {
        return Meteor.users.findOne({_id: this.owner});
-   }
-});
-
-Meteor.methods({
-   addAccount: function (account) {
-        Accounts.create(account);
-   }
+   },
+    label: function() {
+        return this.name;
+    },
+    value: function() {
+        return this._id;
+    }
 });

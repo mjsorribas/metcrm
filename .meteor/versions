@@ -1,9 +1,12 @@
 accounts-base@1.2.0
 accounts-password@1.1.0
 alanning:roles@1.2.13
-aldeed:autoform@5.1.0
+aldeed:autoform@4.2.0
+aldeed:autoform-select2@1.0.5
 aldeed:collection2@2.3.1
 aldeed:simple-schema@1.1.0
+aldeed:template-extension@3.1.1
+alethes:pages@1.7.1
 autoupdate@1.2.0
 base64@1.0.3
 binary-heap@1.0.3
@@ -13,6 +16,7 @@ boilerplate-generator@1.0.3
 callback-hook@1.0.3
 check@1.0.5
 coffeescript@1.0.6
+ctjp:autoform-intl-tel-input@0.2.0
 dburles:collection-helpers@1.0.3
 ddp@1.1.0
 deps@1.0.7
@@ -45,12 +49,13 @@ meteor-platform@1.2.2
 minifiers@1.1.4
 minimongo@1.0.7
 mobile-status-bar@1.0.3
-momentjs:moment@2.8.4
 mongo@1.1.0
+mrt:moment@2.6.0
 npm-bcrypt@0.7.8_1
 observe-sequence@1.0.5
 ongoworks:security@1.1.0
 ordered-dict@1.0.3
+raix:handlebar-helpers@0.1.3
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5
@@ -74,3 +79,5 @@ useraccounts:bootstrap@1.8.1
 useraccounts:core@1.8.1
 webapp@1.2.0
 webapp-hashing@1.0.3
+yogiben:admin@1.0.8
+zimme:select2-bootstrap3-css@1.4.1

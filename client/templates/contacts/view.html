@@ -1,0 +1,88 @@
+<template name="ContactsView">
+    {{#unless contact}}
+        {{> contactsError }}
+    {{else}}
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">View Contact:</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Contact
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4>First Name</h4>
+                                <span class="col-lg-6 editable" data-type="text" data-name="first_name">{{ contact.firstName }}</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4>Last Name</h4>
+                                <span class="col-lg-6 editable" data-type="text" data-name="last_name">{{ contact.lastName }}</span>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4>Title</h4>
+                                <span class="col-lg-6 editable" data-type="text" data-name="title">{{ contact.title }}</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4>Email</h4>
+                                <span class="col-lg-6 editable" data-type="text" data-name="email">{{ contact.email }}</span>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4>Phone</h4>
+                                <span class="col-lg-6 editable" data-type="text" data-name="phone">{{ contact.phone }}</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4>Phone 2</h4>
+                                <span class="col-lg-6 editable" data-type="text" data-name="phone2">{{ contact.phone2 }}</span>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4>Fax</h4>
+                                <span class="col-lg-6 editable" data-type="text" data-name="fax">{{ contact.fax }}</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4>Account</h4>
+                                <span class="col-lg-6 account" data-type="select2" data-name="account_id"><a href='/account/{{contact.account}}'>{{contact.accountName}}</a></span>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+
+
+            </div>
+            <!-- /.col-lg-8 -->
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Comments
+                    </div>
+
+                    <div class="panel-body">
+                        @include('partials.comments')
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    {{/unless}}
+</template>
