@@ -1,13 +1,13 @@
-<template name="allContacts">
+<template name="allManufacturers">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">All Contacts</h1>
+            <h1 class="page-header">All Manufacturers</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <button class="btn btn-primary pull-right" id="newContact">
-                New Contact
+            <button class="btn btn-primary pull-right" id="newManufacturer">
+                New Manufacturer
             </button>
         </div>
     </div>
@@ -18,11 +18,11 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-bar-chart-o fa-fw"></i> Contacts
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Manufacturers
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    {{> reactiveTable class="table table-bordered table-hover" settings=tableSettings}}
+                    {{> reactiveTable class="table table-bordered table-hover" collection=Manufacturers}}
                 </div>
             </div>
         </div>

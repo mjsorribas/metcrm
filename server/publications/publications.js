@@ -5,3 +5,12 @@ Meteor.publish("accounts", function(){
 Meteor.publish("contacts", function(){
     return Contacts.find();
 });
+
+Meteor.publish("manufacturers", function() {
+    return Manufacturers.find();
+});
+
+Meteor.publish("products", function() {
+    return Products.find();
+});
+

@@ -17,6 +17,12 @@ Template.allAccounts.helpers({
     }
 });
 
+Template.allAccounts.events({
+    "click #newAccount" : function() {
+        Router.go('/account/new');
+    }
+});
+
 Template.AccountsView.helpers({
     Contacts: function() {
         return Contacts;
