@@ -46,7 +46,6 @@ Contacts.attachSchema(new SimpleSchema({
         type: String,
         autoform: {
             type: "select2",
-
             options: function() {
                 return _.map(Accounts.find().fetch(), function(service) {
                     return {
@@ -75,5 +74,8 @@ Contacts.helpers({
     },
     accountName : function() {
         return Accounts.findOne({_id : this.account}).name;
+    },
+    fullName: function() {
+        return this.firstName;
     }
 });
