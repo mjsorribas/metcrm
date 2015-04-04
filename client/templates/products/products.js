@@ -23,6 +23,7 @@ Template.allProducts.helpers({
                 { key: 'dateCode', label: 'Date Code' },
                 { key: 'bin', label: 'Bin' },
                 { key: 'manufacturer', label: 'Manufacturer', fn: function(value, object) { return Manufacturers.findOne({_id: object.manufacturer}).name }},
+                { key: 'packageType', label: 'Package Type', fn: function(value, object) { return PackageTypes.findOne({_id: object.packageType}).name }},
             ]
         }
     }

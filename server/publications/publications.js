@@ -18,3 +18,11 @@ Meteor.publish("quotes", function() {
     return Quotes.find();
 });
 
+Meteor.publish("lineItems", function() {
+    return LineItems.find();
+});
+
+Meteor.publish("packageTypes", function() {
+    return PackageTypes.find();
+});
+

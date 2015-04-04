@@ -1,6 +1,6 @@
-lineItems = new Mongo.Collection('lineItems');
+LineItems = new Mongo.Collection('lineItems');
 
-lineItems.attachSchema(new SimpleSchema({
+LineItems.attachSchema(new SimpleSchema({
     itemNumber: {
         type: String,
         label: "Item #",
@@ -52,6 +52,6 @@ lineItems.attachSchema(new SimpleSchema({
 
 
 
-lineItems.helpers({
+LineItems.helpers({
 
 });

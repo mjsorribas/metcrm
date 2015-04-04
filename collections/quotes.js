@@ -1,5 +1,5 @@
 Quotes = new Mongo.Collection('quotes');
-
+QuoteSeq = new Mongo.Collection('quoteSeq');
 Quotes.attachSchema(new SimpleSchema({
     accountId: {
         type: String,
@@ -12,7 +12,7 @@ Quotes.attachSchema(new SimpleSchema({
     shipping: {
         type: String,
         label: "Shipping",
-        max: 200
+        max: 200,
     },
     invoiced: {
         type: Boolean,
@@ -24,7 +24,11 @@ Quotes.attachSchema(new SimpleSchema({
 
 }));
 
-
+if (Meteor.isServer) {
+    Quotes.before.insert(function(userId, doc) {
+        doc.quoteId = incrementCounter(QuoteSeq, 'quoteSeq');
+    });
+}
 
 Quotes.helpers({
 

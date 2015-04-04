@@ -1,5 +1,4 @@
 Contacts = new Mongo.Collection('contacts');
-console.log(Contacts.find().fetch());
 var accounts = Accounts.find();
 
 Contacts.attachSchema(new SimpleSchema({

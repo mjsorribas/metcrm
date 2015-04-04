@@ -1,4 +1,4 @@
-<template name="QuotesNew">
+<template name="QuotesEdit">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">New Quote</h1>
@@ -22,8 +22,8 @@
                                 {{{ account.name }}}
                             </div>
                             <div class="col-lg-6">
-                                <h4>Fax</h4>
-                                {{{ account.fax }}}
+                                <h4>Email</h4>
+                                {{{ account.email }}}
                             </div>
                         </div>
                         <!-- /.row -->
@@ -47,6 +47,15 @@
                             <div class="col-lg-6">
                                 <h4>Shipping Address</h4>
                                 {{{ account.shippingAddress }}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4>Fax</h4>
+                                {{{ account.fax }}}
+                            </div>
+                            <div class="col-lg-6">
+
                             </div>
                         </div>
                         <!-- /.row -->
