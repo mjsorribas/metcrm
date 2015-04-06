@@ -30,10 +30,6 @@ LineItems.attachSchema(new SimpleSchema({
         label: "Date Code",
         max: 200
     },
-    manufacturer: {
-        type: String,
-        label: "Manufacturer"
-        },
     quoteId: {
         type: String,
         label: "Quote Id",

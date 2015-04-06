@@ -86,7 +86,7 @@
                                     <tbody>
                                         {{#each lineItems}}
                                             {{#if active}}
-                                                {{> newLineItem}}
+                                                {{> editLineItem}}
                                             {{else}}
                                                 {{> showLineItem}}
                                             {{/if}}
@@ -156,13 +156,25 @@
 <template name="newLineItem">
     <tr>
         <td><input type=text class="inputQty col-lg-12 onChange" name=qty id=qty value="{{qty}}"></td>
-        <td><input type=text class="inputItemNumber onChange" data-pk=1 name=itemNumber id=itemNumber value="{{itemNumber}}"></td>
+        <td>{{> inputAutocomplete settings=settings id="itemNumber" class="form-control" placeholder="Item Number"}}</td>
         <td><input type=text class="inputPrice col-lg-12 onChange" name=price id=price value="{{price}}"></td>
         <td><input type=text class="inputDateCode col-lg-12" name=dateCode id=dateCode value="{{dateCode}}"></td>
         <td><input type=text class="inputDiscount col-lg-12 onChange" name=discount id=discount value="{{discount}}"></td>
         <td><span class=displayTotal id=total_1>$0.00</span></td>
     </tr>
 </template>
+
+<template name="editLineItem">
+    <tr>
+        <td><input type=text class="inputQty col-lg-12 onChange" data-id="qty" name=qty id=qty value="{{qty}}"></td>
+        <td>{{itemNumber}}</td>
+        <td><input type=text class="inputPrice col-lg-12 onChange" data-id="price" name=price id=price value="{{price}}"></td>
+        <td><input type=text class="inputDateCode col-lg-12" name=dateCode data-id="dateCode" id=dateCode value="{{dateCode}}"></td>
+        <td><input type=text class="inputDiscount col-lg-12 onChange" name=discount data-id="discount" id=discount value="{{discount}}"></td>
+        <td><span class=displayTotal id=total_1>$0.00</span></td>
+    </tr>
+</template>
+
 
 <template name="showLineItem">
     <tr>
@@ -171,6 +183,10 @@
         <td>{{price}}</td>
         <td>{{dateCode}}</td>
         <td>{{discount}}</td>
-        <td><span class=displayTotal id=total_1>$0.00</span></td>
+        <td><span class=displayTotal id=total_1>${{lineTotal}}</span></td>
     </tr>
+</template>
+
+<template name="itemNumber">
+    <span class="label">{{itemNumber}}</span>
 </template>
