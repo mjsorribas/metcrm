@@ -25,7 +25,14 @@ Template.allAccounts.events({
 
 Template.AccountsView.events({
     "click #createQuote" : function() {
-         Router.go('/quote/new/' + this.account._id);
+        currentQuote = Quotes.insert({
+            shipping: 0,
+            invoiced: false,
+            accountId: this.account._id,
+            total: 0,
+            subtotal: 0
+        });
+        Router.go('/quote/edit/' + currentQuote);
     }
 });
 

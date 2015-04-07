@@ -1,0 +1,1 @@
+currencyFormat = '$0,0.00';

@@ -1,3 +1,13 @@
 .label {
     color: black;
 }
+
+.delete {
+    width: 20px;
+    cursor: pointer;
+}
+
+.delete:hover i, .delete:hover{
+    background-color: #a94442;
+    color:white !important;
+}

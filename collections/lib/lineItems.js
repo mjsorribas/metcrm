@@ -1,4 +1,13 @@
-LineItems = new Mongo.Collection('lineItems');
+LineItems = new Mongo.Collection('lineItems', {
+    transform: function(doc) {
+        doc.lineTotal = doc.price * doc.qty - doc.discount;
+        return doc;
+    }
+});
+
+LineItems.before.update(function (userId, doc, fieldNames, modifier, optiosn) {
+
+});
 
 LineItems.attachSchema(new SimpleSchema({
     itemNumber: {
@@ -46,8 +55,3 @@ LineItems.attachSchema(new SimpleSchema({
     }
 }));
 
-
-
-LineItems.helpers({
-
-});

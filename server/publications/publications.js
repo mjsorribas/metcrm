@@ -14,8 +14,13 @@ Meteor.publish("products", function() {
     return Products.find();
 });
 
-Meteor.publish("quotes", function() {
-    return Quotes.find();
+Meteor.publish("quotes", function(limiter) {
+    if(limiter) {
+        return Quotes.find(limiter);
+    } else {
+        return Quotes.find();
+    }
+
 });
 
 Meteor.publish("lineItems", function() {

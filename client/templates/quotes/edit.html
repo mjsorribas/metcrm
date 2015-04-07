@@ -1,13 +1,31 @@
 <template name="QuotesEdit">
     <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">New Quote</h1>
+        <div class="col-lg-10">
+            <h1 class="page-header pull-left">View/Edit {{docType}}</h1>
+            {{#if quotesPage}}
+                {{#unless invoiced}}
+                    <button class="btn-primary btn pull-right" id="invoice">Invoice</button>
+                {{else}}
+                    <button class="btn-primary btn pull-right" id="viewInvoice">View Invoice</button>
+                {{/unless}}
+            {{/if}}
+
+            <button class="btn-primary btn pull-right" id="pdf">PDF</button>
         </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+    {{#if quoteInvoiced}}
+        <div style="position:absolute;">
+            <div style="position: relative;  background-image: url('/invoiced.png');  height: 550px; width: 900px; z-index: 999999;"></div>
+        </div>
+    {{/if}}
+
     <form method="post" id="quoteForm" action="#">
         <div class="row">
+
+            <div class="col-lg-6">
+            </div>
             <div class="col-lg-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -75,6 +93,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="lineItems">
                                     <thead>
                                     <tr>
+                                        <th class="delete"></th>
                                         <th>Quantity</th>
                                         <th>Manufactuer #</th>
                                         <th>Unit Price</th>
@@ -95,7 +114,6 @@
                                         {{> newLineItem}}
                                     </tbody>
                                 </table>
-                                <div style="padding-right:55px;"><button type="button" class="btn btn-primary pull-right" id="addRow">Add Row</button></div>
                             </div>
                             <!-- /.table-responsive -->
                         </div>
@@ -117,25 +135,24 @@
                             <div class="col-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6"><strong>Subtotal</strong></div>
-                                    <div class="col-lg-6">$<span id="subtotal">0.00</span></div>
+                                    <div class="col-lg-6"><span id="subtotal">{{formatCurrency quote.subtotal}}</span></div>
                                 </div>
                                 <div class="row top5">
                                     <div class="col-lg-6"><strong>Shipping</strong></div>
 
                                     <div class="col-lg-6">
-                                        <input type="text" class="input-xs col-lg-12 onChange" id="shipping" name="shipping" value="0">
+                                        <input type="text" class="input-xs col-lg-12 onChange" id="shipping" name="shipping" value="{{formatCurrency quote.shipping}}">
                                     </div>
                                 </div>
                                 <div class="row top5">
                                     <div class="col-lg-6"><strong>Total</strong></div>
-                                    <div class="col-lg-6">$<span id="total">0.00</span></div>
+                                    <div class="col-lg-6"><span id="total">{{formatCurrency quote.total}}</span></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-7"></div>
-                                    <button class="btn top10 btn-success">Save Quote</button>
                                 </div>
                             </div>
                         </div>
@@ -155,38 +172,45 @@
 
 <template name="newLineItem">
     <tr>
-        <td><input type=text class="inputQty col-lg-12 onChange" name=qty id=qty value="{{qty}}"></td>
+        <td></td>
+        <td></td>
         <td>{{> inputAutocomplete settings=settings id="itemNumber" class="form-control" placeholder="Item Number"}}</td>
-        <td><input type=text class="inputPrice col-lg-12 onChange" name=price id=price value="{{price}}"></td>
-        <td><input type=text class="inputDateCode col-lg-12" name=dateCode id=dateCode value="{{dateCode}}"></td>
-        <td><input type=text class="inputDiscount col-lg-12 onChange" name=discount id=discount value="{{discount}}"></td>
-        <td><span class=displayTotal id=total_1>$0.00</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
 </template>
 
 <template name="editLineItem">
     <tr>
+        <td class="delete"><i class="fa fa-2x fa-minus-square-o text-danger"></i></td>
         <td><input type=text class="inputQty col-lg-12 onChange" data-id="qty" name=qty id=qty value="{{qty}}"></td>
         <td>{{itemNumber}}</td>
         <td><input type=text class="inputPrice col-lg-12 onChange" data-id="price" name=price id=price value="{{price}}"></td>
         <td><input type=text class="inputDateCode col-lg-12" name=dateCode data-id="dateCode" id=dateCode value="{{dateCode}}"></td>
         <td><input type=text class="inputDiscount col-lg-12 onChange" name=discount data-id="discount" id=discount value="{{discount}}"></td>
-        <td><span class=displayTotal id=total_1>$0.00</span></td>
+        <td><span class=displayTotal id=total_1>{{formatCurrency lineItemTotal}}</span></td>
     </tr>
 </template>
 
 
 <template name="showLineItem">
     <tr>
+        <td class="delete"><i class="fa fa-2x fa-minus-square-o text-danger"></i></td>
         <td>{{qty}}</td>
         <td>{{itemNumber}}</td>
-        <td>{{price}}</td>
+        <td>{{formatCurrency price}}</td>
         <td>{{dateCode}}</td>
-        <td>{{discount}}</td>
-        <td><span class=displayTotal id=total_1>${{lineTotal}}</span></td>
+        <td>{{formatCurrency discount}}</td>
+        <td><span class=displayTotal id=total_1>{{formatCurrency lineTotal}}</span></td>
     </tr>
 </template>
 
 <template name="itemNumber">
     <span class="label">{{itemNumber}}</span>
+</template>
+
+<template name="testprint">
+    This is a test {{account.name}}
 </template>

@@ -1,30 +1,3 @@
-Template.QuotesEdit.helpers({
-    //quote : function() {
-    //    return Quotes.findOne({_id: this.quoteId});
-    //},
-    account: function() {
-        return Accounts.findOne({_id: this.quote.accountId});
-    }
-});
-//Template.newLineItem.rendered = function() {
-//    Meteor.typeahead.inject();
-//};
-//Template.newLineItem.helpers({
-//    search : function(query, callback) {
-//        console.log('in search');
-//        Meteor.call('searchProducts', query, {}, function(err, res) {
-//            if (err) {
-//                console.log(err);
-//                return;
-//            }
-//            console.log(res);
-//            callback(res.map(function(v){
-//
-//                return {label: v._id, value: v.itemNumber}; }));
-//        });
-//    }
-//    });
-
 Template.newLineItem.helpers({
     settings: function() {
         return {
@@ -44,9 +17,23 @@ Template.newLineItem.helpers({
 
 Template.newLineItem.events({
    "autocompleteselect input": function(event, template, doc) {
-       lineItemObj = {itemNumber: doc.itemNumber, productId: doc._id, qty: 1, price: doc.price, dateCode: doc.dateCode, discount: 0, lineTotal: doc.price, quoteId: template.data.quote._id};
+       lineItemObj = {
+           itemNumber: doc.itemNumber,
+           productId: doc._id, qty: 1,
+           price: doc.price,
+           dateCode: doc.dateCode,
+           discount: 0,
+           lineTotal: doc.price,
+           quoteId: template.data.quote._id
+       };
        lineItem = LineItems.insert(lineItemObj);
    }
+});
+
+Template.editLineItem.helpers({
+    lineItemTotal: function() {
+        return this.price * this.qty - this.discount;
+    }
 });
 
 Template.editLineItem.events({

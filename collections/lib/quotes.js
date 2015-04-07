@@ -12,7 +12,7 @@ Quotes.attachSchema(new SimpleSchema({
     shipping: {
         type: String,
         label: "Shipping",
-        max: 200,
+        max: 200
     },
     invoiced: {
         type: Boolean,
@@ -20,6 +20,14 @@ Quotes.attachSchema(new SimpleSchema({
         autoform: {
             omit: true
         }
+    },
+    total: {
+        type: String,
+        label: 'Total'
+    },
+    subtotal: {
+        type: String,
+        label: "Sub-Total"
     }
 
 }));
@@ -30,6 +38,4 @@ if (Meteor.isServer) {
     });
 }
 
-Quotes.helpers({
 
-});

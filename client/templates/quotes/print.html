@@ -1,0 +1,283 @@
+<template name="QuotePrint">
+    <div class="invoice">
+        <div id="invoice-status" class="draft"></div>
+        <div id="logo-img" class="left">
+        </div>
+        <div id="company-info" class="right">
+            <div class="title">Account</div>
+            {{ account.name }}<br>
+
+        </div>
+        <div id="single-settings" class="right clear">
+            <table>
+                <thead>
+                <tr>
+                    <th id="invoice-number-label" class="label">Invoice No.</th>
+                    <th id="invoice-number-value" class="value"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="date-row">
+                    <td id="date-label" class="label">Date</td>
+                    <td id="date-value" class="value"></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="left">
+            <div id="customer" class="title">Address</div>
+            <div id="bill-to">
+            </div>
+        </div>
+        <div id="invoice-title" class="clear">
+            Quote
+        </div>
+        <div id="items">
+            <table id="items-table">
+                <thead id="items-header">
+                <tr>
+                    <th class="item">Manufacturer #</th>
+                    <th class="quantity">Quantity</th>
+                    <th class="price-unit">Price/Unit</th>
+                    <th class="discount">Discount</th>
+                    <th class="price">Price</th>
+                </tr>
+                </thead>
+                <tbody id="items-body">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="section">
+            <div id="totals" class="right">
+                <table>
+                    <tbody>
+                    <tr class="highlighted">
+                        <td class="label" id="subtotal-label">Subtotal</td>
+                        <td class="value right-align" id="subtotal">$</td>
+                    </tr>
+
+                    <tr>
+                        <td id="total-label" class="label">Shipping</td>
+                        <td class="value right-align" id="shipping">$</td>
+                    </tr>
+                    <tr class="highlighted">
+                        <td id="total-label" class="label">Total</td>
+                        <td class="value right-align" id="total">$</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="footer" class="clear">
+
+            </div>
+        </div>
+    </div>
+
+    <style type="text/css">
+        .invoice #items {
+            width: 100%;
+        }
+        .invoice .left {
+            float: left;
+        }
+        .invoice .right {
+            float: right;
+        }
+        .invoice .clear {
+            clear: both;
+        }
+        .invoice .section {
+            overflow: hidden;
+        }
+        .invoice table {
+            border-collapse: collapse;
+            border-spacing: 0px;
+        }
+        .invoice #invoice-number-label,
+        .invoice .title {
+            border-bottom: 2px solid #cccccc;
+            color: #777777;
+            font-size: 16px !important;
+            font-weight: normal;
+            line-height: 30px;
+            margin-bottom: 2px;
+        }
+        .invoice #invoice-number-label,
+        .invoice #invoice-number-value {
+            border-bottom: 2px solid #cccccc;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .invoice .highlighted {
+            background: #eeeeee;
+        }
+        .invoice .right-align {
+            text-align: right;
+        }
+        .invoice #logo-img {
+            background-position: 0px 0px;
+            background-repeat: no-repeat;
+            width: 7cm;
+        }
+        .invoice #logo-img img {
+            max-height: 3cm;
+            max-width: 7cm;
+        }
+        .invoice #company-info {
+            margin-top: -9px;
+            width: 7cm;
+        }
+        .invoice #customer {
+            padding-top: 45px;
+            width: 7cm;
+        }
+        .invoice #customer.title {
+            overflow: hidden;
+        }
+        .invoice #customer > div {
+            float: left;
+            width: 50%;
+        }
+        .invoice #bill-to {
+            width: 7cm;
+        }
+        .invoice #bill-to span {
+            float: left;
+        }
+        .invoice #single-settings {
+            padding-top: 45px;
+            width: 7cm;
+        }
+        .invoice #single-settings > table {
+            width: 100%;
+        }
+        .invoice #single-settings > table .value {
+            line-height: 30px;
+            white-space: nowrap;
+            width: 50%;
+        }
+        .invoice #single-settings > table .label {
+            color: #777777;
+            font-size: 14px;
+            padding-right: 10px;
+        }
+        .invoice #single-settings #invoice-number-label {
+            font-weight: normal;
+        }
+        .invoice #invoice-title {
+            color: #777777;
+            font-size: 34px;
+            line-height: 100%;
+            padding-top: 30px;
+            text-align: center;
+            width: 100%;
+        }
+        .invoice #items {
+            width: 100%;
+        }
+        .invoice #items > table {
+            margin-top: 20px;
+            width: 100%;
+        }
+        .invoice #items > table td {
+            border-bottom: 1px solid #e1e0de;
+            hyphens: auto;
+            moz-hyphens: auto;
+            ms-word-break: break-all;
+            padding: 8px 15px 8px 0px;
+            vertical-align: top;
+            webkit-hyphens: auto;
+            word-break: break-all;
+            word-break: break-word;
+        }
+        .invoice #items > table th {
+            border-bottom: 2px solid #cccccc;
+            padding: 8px 15px 8px 0px;
+            color: #777777;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .invoice #items > table .position {
+            min-width: 0.5cm;
+            width: auto;
+        }
+        .invoice #items > table .description {
+            width: auto;
+        }
+        .invoice #items > table .quantity {
+            max-width: 2cm;
+            text-align: right;
+            white-space: nowrap;
+            width: auto;
+        }
+        .invoice #items > table .price-unit {
+            max-width: 2.5cm;
+            ms-text-overflow: ellipsis;
+            o-text-overflow: ellipsis;
+            overflow: hidden;
+            text-align: right;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: auto;
+        }
+        .invoice #items > table .price {
+            max-width: 2.5cm;
+            padding-right: 0px;
+            text-align: right;
+            white-space: nowrap;
+            width: auto;
+        }
+        .invoice #items > table .discount {
+            max-width: 2.5cm;
+            padding-right: 0px;
+            text-align: right;
+            white-space: nowrap;
+            width: auto;
+        }
+        .invoice #totals {
+            font-size: 14px;
+            max-width: 12cm;
+            min-width: 7.35cm;
+            padding-top: 30px;
+        }
+        .invoice #totals > table {
+            width: 100%;
+        }
+        .invoice #totals > table .value {
+            line-height: 26px;
+            padding-right: 3px;
+            vertical-align: middle;
+        }
+        .invoice #totals .label {
+            color: #777777;
+            padding-left: 11px;
+            white-space: nowrap;
+        }
+        .invoice #totals .label > span {
+            float: left;
+        }
+        .invoice #totals #total {
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .invoice #totals #tax-text {
+            margin-right: 5px;
+        }
+        .invoice #totals #tax2-text {
+            margin-right: 5px;
+        }
+        .invoice #outstanding-balance > td {
+            padding-top: 10px;
+        }
+        .invoice #expense {
+            clear: both;
+        }
+        .invoice #footer {
+            padding-top: 35px;
+            width: 100%;
+        }
+    </style>
+</template>
