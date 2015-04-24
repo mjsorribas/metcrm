@@ -31,13 +31,15 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <h4>Name</h4>
-                                <span class="col-lg-6 editable" id="name" data-type="text" data-pk="{{ account.id }}"
+                                <span class="col-lg-6 editable" id="name" data-type="text" 
+                                      data-pk="{{ account._id }}"
                                       data-name="name">{{ account.name }}</span>
                             </div>
                             <div class="col-lg-6">
                                 <h4>Email</h4>
                                 <span class="col-lg-6 editable" data-type="text"
-                                      data-pk="{{ account.id }}" data-name="email">{{ account.email }}</span>
+                                      data-pk="{{ account._id }}" 
+                                      data-name="email">{{ account.email }}</span>
                             </div>
                         </div>
                         <!-- /.row -->
@@ -45,12 +47,14 @@
                             <div class="col-lg-6">
                                 <h4>Phone</h4>
                                 <span class="col-lg-6 editable" data-type="text"
-                                      data-pk="{{ account.id }}" data-name="phone">{{ account.phone }}</span>
+                                      data-pk="{{ account._id }}" 
+                                      data-name="phone">{{ account.phone }}</span>
                             </div>
                             <div class="col-lg-6">
                                 <h4>Phone 2</h4>
                                 <span class="col-lg-6 editable" data-type="text"
-                                      data-pk="{{ account.id }}" data-name="phone2">{{ account.phone2 }}</span>
+                                      data-pk="{{ account._id }}"
+                                      data-name="phone2">{{ account.phone2 }}</span>
                             </div>
                         </div>
                         <!-- /.row -->
@@ -58,28 +62,29 @@
                             <div class="col-lg-6">
                                 <h4>Billing Address</h4>
                                 <span class="col-lg-6 editable" data-type="textarea"
-                                      data-pk="{{ account.id }}"
-                                      data-name="billing_address">{{ account.billingAddress }}</span>
+                                      data-pk="{{ account._id }}" placeholder="Empty"
+                                      data-name="billingAddress">{{ account.billingAddress }}</span>
                             </div>
                             <div class="col-lg-6">
                                 <h4>Shipping Address</h4>
                                 <span class="col-lg-6 editable" data-type="textarea"
-                                      data-pk="{{ account.id }}"
-                                      data-name="shipping_address">{{ account.shippingAddress }}</span>
+                                      data-pk="{{ account._id }}"
+                                      data-name="shippingAddress"
+                                      >{{ account.shippingAddress }}</span>
                             </div>
                         </div>
                         <!-- /.row -->
                         <div class="row">
                             <div class="col-lg-6">
-                                <h4>Account Types</h4>
-                                <span class="col-lg-6 accountType" data-type="checklist"
-                                      data-value="{{ $currentTypes }}"
-                                      data-pk="{{ account.id }}" data-name="accountTypes"></span>
+                                <h4>Account Type</h4>
+                                <span class="col-lg-6 accountType"
+                                      data-value="{{  account.accountTypeId }}"
+                                      data-pk="{{ account._id }}">{{ accountTypeName account.accountTypeId }}</span>
                             </div>
                             <div class="col-lg-6">
                                 <h4>Fax</h4>
                                 <span class="col-lg-6 editable" data-type="text"
-                                      data-pk="{{ account.id }}" data-name="fax">{{ account.fax }}</span>
+                                      data-pk="{{ account._id }}" data-name="fax">{{ account.fax }}</span>
                             </div>
                         </div>
                     </div>

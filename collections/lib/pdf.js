@@ -1,0 +1,1 @@
+PdfsCollection = new Mongo.Collection('pdfs');

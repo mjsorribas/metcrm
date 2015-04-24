@@ -1,0 +1,53 @@
+<template name="emailSettings">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Email Settings</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h4>Email From:</h4>
+                            <input type="text" name="emailFrom" class="form-control" id="emailFrom"
+                                   data-id="{{emailFrom._id}}" value="{{emailFrom.value}}"/>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h4>Email HTML Body</h4>
+                            <textarea name="emailHtmlBody" id="emailHtmlBody" class="form-control" cols="30"
+                                      data-id="{{emailHtmlBody._id}}" rows="5">{{emailHtmlBody.value}}</textarea>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h4>Email Text Body</h4>
+                            <textarea name="emailTextBody" id="emailTextBody" class="form-control" cols="30"
+                                      data-id="{{emailTextBody._id}}" rows="5">{{emailTextBody.value}}</textarea>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button class="btn btn-primary pull-right" id="save">Save</button>
+                        </div>
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+        </div>
+    </div>
+</template>

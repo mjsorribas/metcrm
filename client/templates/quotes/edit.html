@@ -11,6 +11,13 @@
             {{/if}}
 
             <button class="btn-primary btn pull-right" id="pdf">PDF</button>
+            {{#unless account.email}}
+                <button class="btn-primary btn pull-right" id="email" disabled="diabled" name="email">Email Client
+                </button>
+            {{else}}
+                <button class="btn-primary btn pull-right" id="email" name="email">Email Client</button>
+            {{/unless}}
+
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -103,15 +110,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        {{#each lineItems}}
-                                            {{#if active}}
-                                                {{> editLineItem}}
-                                            {{else}}
-                                                {{> showLineItem}}
-                                            {{/if}}
-                                        {{/each}}
+                                    {{#each lineItems}}
+                                        {{#if active}}
+                                            {{> editLineItem}}
+                                        {{else}}
+                                            {{> showLineItem}}
+                                        {{/if}}
+                                    {{/each}}
 
-                                        {{> newLineItem}}
+                                    {{> newLineItem}}
                                     </tbody>
                                 </table>
                             </div>
@@ -135,13 +142,15 @@
                             <div class="col-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6"><strong>Subtotal</strong></div>
-                                    <div class="col-lg-6"><span id="subtotal">{{formatCurrency quote.subtotal}}</span></div>
+                                    <div class="col-lg-6"><span id="subtotal">{{formatCurrency quote.subtotal}}</span>
+                                    </div>
                                 </div>
                                 <div class="row top5">
                                     <div class="col-lg-6"><strong>Shipping</strong></div>
 
                                     <div class="col-lg-6">
-                                        <input type="text" class="input-xs col-lg-12 onChange" id="shipping" name="shipping" value="{{formatCurrency quote.shipping}}">
+                                        <input type="text" class="input-xs col-lg-12 onChange" id="shipping"
+                                               name="shipping" value="{{formatCurrency quote.shipping}}">
                                     </div>
                                 </div>
                                 <div class="row top5">
@@ -166,8 +175,8 @@
         </div>
         <!-- /.row -->
     </form>
-</template>
 
+</template>
 
 
 <template name="newLineItem">
@@ -187,9 +196,12 @@
         <td class="delete"><i class="fa fa-2x fa-minus-square-o text-danger"></i></td>
         <td><input type=text class="inputQty col-lg-12 onChange" data-id="qty" name=qty id=qty value="{{qty}}"></td>
         <td>{{itemNumber}}</td>
-        <td><input type=text class="inputPrice col-lg-12 onChange" data-id="price" name=price id=price value="{{price}}"></td>
-        <td><input type=text class="inputDateCode col-lg-12" name=dateCode data-id="dateCode" id=dateCode value="{{dateCode}}"></td>
-        <td><input type=text class="inputDiscount col-lg-12 onChange" name=discount data-id="discount" id=discount value="{{discount}}"></td>
+        <td><input type=text class="inputPrice col-lg-12 onChange" data-id="price" name=price id=price
+                   value="{{price}}"></td>
+        <td><input type=text class="inputDateCode col-lg-12" name=dateCode data-id="dateCode" id=dateCode
+                   value="{{dateCode}}"></td>
+        <td><input type=text class="inputDiscount col-lg-12 onChange" name=discount data-id="discount" id=discount
+                   value="{{discount}}"></td>
         <td><span class=displayTotal id=total_1>{{formatCurrency lineItemTotal}}</span></td>
     </tr>
 </template>
@@ -211,6 +223,3 @@
     <span class="label">{{itemNumber}}</span>
 </template>
 
-<template name="testprint">
-    This is a test {{account.name}}
-</template>

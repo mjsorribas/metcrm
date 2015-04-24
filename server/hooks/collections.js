@@ -1,5 +1,5 @@
-var reference = function(userId, doc) {
-    Meteor.call('updateQuote', doc.quoteId);
+var reference = function (userId, doc) {
+  Meteor.call('updateQuote', doc.quoteId);
 };
 LineItems.after.update(reference);
 

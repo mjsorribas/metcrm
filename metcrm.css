@@ -7,7 +7,32 @@
     cursor: pointer;
 }
 
-.delete:hover i, .delete:hover{
+.delete:hover i, .delete:hover {
     background-color: #a94442;
-    color:white !important;
+    color: white !important;
+}
+
+.sidebar {
+    margin-top: 100px;
+}
+
+.navbar-default {
+    border: 0px;
+}
+
+.navbar-brand {
+    width: 100px;
+    margin-left: 50px;
+}
+
+#page-wrapper {
+    border-top: 1px solid #e7e7e7;
+}
+
+.btn {
+    margin: 2px;
+}
+
+.well {
+    padding: 7px;
 }
