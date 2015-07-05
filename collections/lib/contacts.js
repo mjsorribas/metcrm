@@ -36,6 +36,31 @@ ContactsSchema = new SimpleSchema({
     optional: true,
     regEx: SimpleSchema.RegEx.Phone
   },
+  mailingStreet: {
+    type: String,
+    label: "Mailing Street",
+    optional: true
+  },
+  mailingCity: {
+    type: String,
+    label: "Mailing City",
+    optional: true
+  },
+  mailingState: {
+    type: String,
+    label: "Mailing State",
+    optional: true
+  },
+  mailingZip: {
+    type: String,
+    label: "Mailing Zip",
+    optional: true
+  },
+  mailingCountry: {
+    type: String,
+    label: "Mailing Country",
+    optional: true
+  },
   email: {
     type: String,
     optional: true,

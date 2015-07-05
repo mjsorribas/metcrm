@@ -43,3 +43,12 @@ Meteor.publish("customerTypes", function() {
   return CustomerTypes.find();
 });
 
+Meteor.publish("comments", function(limiter) {
+  console.log(limiter);
+  return Comments.find(limiter, {sort: {createdAt: -1}});
+});
+
+Meteor.publish("userData", function(limiter) {
+  return Meteor.users.findOne({_id: limiter});
+});
+

@@ -5,7 +5,6 @@ Template.accountsFormInsert.helpers({
 });
 
 Handlebars.registerHelper('accountTypeName', function (item) {
-  console.log(item);
   return CustomerTypes.findOne({_id : item}).name;
 });
 
@@ -39,7 +38,6 @@ Template.AccountsView.rendered = function () {
       var fieldName = $(this).data('name');
       var set = {};
       set[$(this).data('name')] = newValue;
-      console.log();
       if(!AccountsCollection.simpleSchema().namedContext().validateOne(set, $(this).data('name'))) {
         return "Invalid";
       }
@@ -96,8 +94,11 @@ Template.AccountsView.helpers({
       fields: [
         {
           key: 'name', label: 'Name', fn: function (value, object) {
-          return new Spacebars.SafeString('<a href="/contact/' + object._id + '">' + object.firstName + ' ' + object.lastName + '</a>');
-        }
+            return new Spacebars.SafeString('<a href="/contact/' + object._id + '">' + object.firstName + ' ' + object.lastName + '</a>');
+          }
+        },
+        {
+          key: 'email', label: 'Email'
         },
         {key: 'phone', label: 'Phone #'},
       ]

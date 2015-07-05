@@ -6,7 +6,7 @@ Template.allManufacturers.helpers({
 
 Template.allManufacturers.events({
   "click #newManufacturer": function () {
-    Router.go('/package/new');
+    Router.go('/manufacturer/new');
   }
 });
 

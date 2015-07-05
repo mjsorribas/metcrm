@@ -8,3 +8,4 @@ LineItems.permit(['insert', 'update', 'remove']).apply();
 PdfsCollection.permit(['remove']).apply();
 Settings.permit(['update']).apply();
 CustomerTypes.permit(['insert']).apply();
+Comments.permit(['insert']).apply();

@@ -1,109 +1,187 @@
 <template name="AccountsView">
-    {{#unless account}}
-        {{> accountsError }}
-    {{else}}
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">View Account</h1>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-8">
-                <button class="btn btn-primary pull-right" id="createQuote">
-                    Create Quote
-                </button>
-            </div>
-        </div>
-        <div class="row">
-            &nbsp;
-        </div>
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Account Information
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
+  {{#unless account}}
+    {{> accountsError }}
+  {{else}}
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">View Account</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-lg-8">
+        <button class="btn btn-primary pull-right" id="createQuote">
+          Create Quote
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      &nbsp;
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <i class="fa fa-bar-chart-o fa-fw"></i> Account Information
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
 
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4>Name</h4>
-                                <span class="col-lg-6 editable" id="name" data-type="text" 
+            <div class="row">
+              <div class="col-lg-6">
+                <h4>Name</h4>
+                                <span class="col-lg-6 editable" id="name" data-type="text"
                                       data-pk="{{ account._id }}"
                                       data-name="name">{{ account.name }}</span>
-                            </div>
-                            <div class="col-lg-6">
-                                <h4>Email</h4>
+              </div>
+              <div class="col-lg-6">
+                <h4>Email</h4>
                                 <span class="col-lg-6 editable" data-type="text"
-                                      data-pk="{{ account._id }}" 
+                                      data-pk="{{ account._id }}"
                                       data-name="email">{{ account.email }}</span>
-                            </div>
-                        </div>
-                        <!-- /.row -->
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4>Phone</h4>
+              </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+              <div class="col-lg-6">
+                <h4>Phone</h4>
                                 <span class="col-lg-6 editable" data-type="text"
-                                      data-pk="{{ account._id }}" 
+                                      data-pk="{{ account._id }}"
                                       data-name="phone">{{ account.phone }}</span>
-                            </div>
-                            <div class="col-lg-6">
-                                <h4>Phone 2</h4>
+              </div>
+              <div class="col-lg-6">
+                <h4>Phone 2</h4>
                                 <span class="col-lg-6 editable" data-type="text"
                                       data-pk="{{ account._id }}"
                                       data-name="phone2">{{ account.phone2 }}</span>
-                            </div>
-                        </div>
-                        <!-- /.row -->
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4>Billing Address</h4>
-                                <span class="col-lg-6 editable" data-type="textarea"
+              </div>
+            </div>
+            <!-- /.row -->
+            <div class="form-group">
+              <h3>Billing</h3>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <h4>Billing Street</h4>
+                                <span class="col-lg-6 editable" data-type="text"
                                       data-pk="{{ account._id }}" placeholder="Empty"
-                                      data-name="billingAddress">{{ account.billingAddress }}</span>
-                            </div>
-                            <div class="col-lg-6">
-                                <h4>Shipping Address</h4>
-                                <span class="col-lg-6 editable" data-type="textarea"
+                                      data-name="billingStreet">{{ account.billingStreet }}</span>
+                </div>
+                <div class="col-lg-6">
+                  <h4>Billing City</h4>
+                                <span class="col-lg-6 editable" data-type="text"
                                       data-pk="{{ account._id }}"
-                                      data-name="shippingAddress"
-                                      >{{ account.shippingAddress }}</span>
-                            </div>
-                        </div>
-                        <!-- /.row -->
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4>Account Type</h4>
+                                      data-name="billingCity"
+                                        >{{ account.billingCity }}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <h4>Billing State</h4>
+                                <span class="col-lg-6 editable" data-type="text"
+                                      data-pk="{{ account._id }}" placeholder="Empty"
+                                      data-name="billingState">{{ account.billingState }}</span>
+                </div>
+                <div class="col-lg-6">
+                  <h4>Billing Zip</h4>
+                                <span class="col-lg-6 editable" data-type="text"
+                                      data-pk="{{ account._id }}"
+                                      data-name="billingCode"
+                                        >{{ account.billingCode }}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <h4>Billing Country</h4>
+                                <span class="col-lg-6 editable" data-type="text"
+                                      data-pk="{{ account._id }}" placeholder="Empty"
+                                      data-name="billingCountry">{{ account.billingCountry }}</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <h3>Shipping</h3>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <h4>Shipping Street</h4>
+                                <span class="col-lg-6 editable" data-type="text"
+                                      data-pk="{{ account._id }}" placeholder="Empty"
+                                      data-name="shippingStreet">{{ account.shippingStreet }}</span>
+                </div>
+                <div class="col-lg-6">
+                  <h4>Shipping City</h4>
+                                <span class="col-lg-6 editable" data-type="text"
+                                      data-pk="{{ account._id }}"
+                                      data-name="shippingCity"
+                                        >{{ account.shippingCity }}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <h4>Shipping State</h4>
+                                <span class="col-lg-6 editable" data-type="text"
+                                      data-pk="{{ account._id }}" placeholder="Empty"
+                                      data-name="shippingState">{{ account.shippingState }}</span>
+                </div>
+                <div class="col-lg-6">
+                  <h4>Shipping Zip</h4>
+                                <span class="col-lg-6 editable" data-type="text"
+                                      data-pk="{{ account._id }}"
+                                      data-name="shippingCode"
+                                        >{{ account.shippingCode }}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <h4>Shipping Country</h4>
+                                <span class="col-lg-6 editable" data-type="text"
+                                      data-pk="{{ account._id }}" placeholder="Empty"
+                                      data-name="shippingCountry">{{ account.shippingCountry }}</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- /.row -->
+            <div class="row">
+              <div class="col-lg-6">
+                <h4>Account Type</h4>
                                 <span class="col-lg-6 accountType"
                                       data-value="{{  account.accountTypeId }}"
                                       data-pk="{{ account._id }}">{{ accountTypeName account.accountTypeId }}</span>
-                            </div>
-                            <div class="col-lg-6">
-                                <h4>Fax</h4>
+              </div>
+              <div class="col-lg-6">
+                <h4>Fax</h4>
                                 <span class="col-lg-6 editable" data-type="text"
                                       data-pk="{{ account._id }}" data-name="fax">{{ account.fax }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Account Contacts
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        {{> reactiveTable class="table table-bordered table-hover" settings=tableSettings}}
-                    </div>
-                </div>
-            </div>
+      </div>
+
+      {{> commentBox}}
+
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <i class="fa fa-bar-chart-o fa-fw"></i> Account Contacts
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+            {{> reactiveTable class="table table-bordered table-hover" settings=tableSettings}}
+          </div>
         </div>
-    {{/unless}}
+      </div>
+
+    </div>
+
+  {{/unless}}
 </template>
