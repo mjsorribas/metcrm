@@ -96,11 +96,13 @@
                     <div class="panel-body">
 
                         <div class="row">
+                          <button class="btn btn-primary" data-action="addItem">Add Item</button>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="lineItems">
                                     <thead>
                                     <tr>
                                         <th class="delete"></th>
+                                        <th>Description</th>
                                         <th>Quantity</th>
                                         <th>Manufactuer #</th>
                                         <th>Unit Price</th>
@@ -175,12 +177,31 @@
         </div>
         <!-- /.row -->
     </form>
-
+    {{> newItemModal}}
 </template>
 
+<template name="newItemModal">
+  <div class="modal fade" id="newItemModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          {{> quickForm collection="LineItems" id="newItemForm" type="insert"}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</template>
 
 <template name="newLineItem">
     <tr>
+        <td></td>
         <td></td>
         <td></td>
         <td>{{> inputAutocomplete settings=settings id="itemNumber" class="form-control" placeholder="Item Number"}}</td>
@@ -194,6 +215,7 @@
 <template name="editLineItem">
     <tr>
         <td class="delete"><i class="fa fa-2x fa-minus-square-o text-danger"></i></td>
+        <td><input type="text" class="inputDescription col-lg-12 onChange" data-id="description" name="description" id="description" value="{{description}}"/></td>
         <td><input type=text class="inputQty col-lg-12 onChange" data-id="qty" name=qty id=qty value="{{qty}}"></td>
         <td>{{itemNumber}}</td>
         <td><input type=text class="inputPrice col-lg-12 onChange" data-id="price" name=price id=price
@@ -210,6 +232,7 @@
 <template name="showLineItem">
     <tr>
         <td class="delete"><i class="fa fa-2x fa-minus-square-o text-danger"></i></td>
+        <td>{{description}}</td>
         <td>{{qty}}</td>
         <td>{{itemNumber}}</td>
         <td>{{formatCurrency price}}</td>

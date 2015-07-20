@@ -43,3 +43,34 @@ Template.editLineItem.events({
     LineItems.update(template.data._id, {$set: set});
   }
 });
+
+Template.QuotesEdit.events({
+  "click [data-action=addItem]" : function(e,t) {
+    e.preventDefault();
+    var quoteId = Router.current().params.quoteId;
+    Session.set('currentQuoteId', quoteId);
+    $('#newItemModal').on('shown.bs.modal', function () {
+      $('[name=itemNumber]').focus()
+    })
+    $('#newItemModal').modal();
+
+
+  }
+});
+
+Template.newItemModal.events({
+  "submit form" : function(e, t) {
+    $('#newItemModal').modal('hide');
+  }
+})
+
+AutoForm.hooks({
+  newItemForm : {
+    before: {
+      insert: function(doc) {
+        doc.quoteId = Session.get('currentQuoteId');
+        this.result(doc);
+      }
+    }
+  }
+})

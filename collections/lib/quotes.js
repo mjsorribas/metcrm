@@ -28,6 +28,11 @@ Quotes.attachSchema(new SimpleSchema({
   subtotal: {
     type: String,
     label: "Sub-Total"
+  },
+  deleted: {
+    type: String,
+    label: "Deleted",
+    optional: true
   }
 
 }));

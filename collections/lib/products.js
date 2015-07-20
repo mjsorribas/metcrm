@@ -6,6 +6,11 @@ Products.attachSchema(new SimpleSchema({
     label: "Item #",
     max: 200
   },
+  description: {
+    type: String,
+    label: "Description",
+    optional: true
+  },
   price: {
     type: String,
     label: "Price",
@@ -19,12 +24,14 @@ Products.attachSchema(new SimpleSchema({
   qty: {
     type: String,
     label: "Qty",
-    max: 200
+    max: 200,
+    optional: true
   },
   dateCode: {
     type: String,
     label: "Date Code",
-    max: 200
+    max: 200,
+    optional: true
   },
   bin: {
     type: String,
@@ -33,6 +40,7 @@ Products.attachSchema(new SimpleSchema({
   },
   manufacturer: {
     type: String,
+    optional: true,
     autoform: {
       type: "select2",
       options: function () {

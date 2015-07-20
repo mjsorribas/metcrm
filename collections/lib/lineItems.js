@@ -38,16 +38,22 @@ LineItems.attachSchema(new SimpleSchema({
   quoteId: {
     type: String,
     label: "Quote Id",
-    optional: true
+    autoform: {
+      omit: true
+    }
   },
-  invoiceId: {
+  description: {
     type: String,
-    label: "Invoice Id",
+    label: "Description",
     optional: true
   },
   lineTotal: {
     type: String,
-    label: "Total"
+    label: "Total",
+    optional: true,
+    autoform: {
+      omit: true
+    }
   }
 }));
 

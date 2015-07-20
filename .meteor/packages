@@ -13,13 +13,10 @@ useraccounts:core
 useraccounts:bootstrap
 twbs:bootstrap
 fortawesome:fontawesome
-aldeed:autoform
 aldeed:collection2
 dburles:collection-helpers
 ongoworks:security
 zimme:select2-bootstrap3-css
-aldeed:autoform-select2
-ctjp:autoform-intl-tel-input
 reactive-var
 msavin:mongol
 reywood:publish-composite
@@ -45,3 +42,5 @@ chrismbeckett:toastr
 meteorhacks:async
 jgdovin:html-pdf
 momentjs:moment
+aldeed:autoform-select2
+aldeed:autoform

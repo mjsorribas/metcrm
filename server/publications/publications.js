@@ -16,9 +16,10 @@ Meteor.publish("products", function () {
 
 Meteor.publish("quotes", function (limiter) {
   if (limiter) {
+    limiter.deleted = null;
     return Quotes.find(limiter);
   } else {
-    return Quotes.find();
+    return Quotes.find({deleted: null});
   }
 
 });
@@ -44,7 +45,6 @@ Meteor.publish("customerTypes", function() {
 });
 
 Meteor.publish("comments", function(limiter) {
-  console.log(limiter);
   return Comments.find(limiter, {sort: {createdAt: -1}});
 });
 

@@ -62,6 +62,14 @@ Template.QuotesAll.helpers({
       rowsPerPage: 10,
       fields: [
         {
+          key: 'quoteId', label: 'Delete', fn: function(value, object) {
+          return new Spacebars.SafeString('<i class="fa fa-2x fa-minus-square-o text-danger"></i>');
+        },
+          cellClass: function(value, object) {
+            return 'delete';
+          }
+        },
+        {
           key: 'quoteId', label: 'Quote #', fn: function (value, object) {
           return new Spacebars.SafeString('<a href="quote/edit/' + object._id + '">W' + object.quoteId + '</a>')
         }
@@ -144,7 +152,16 @@ Template.QuoteSelect.events({
 Template.QuotesAll.events({
   "click #newQuote": function () {
     Router.go('/quote/select');
-  }
+  },
+  "click .reactive-table tr": function (event, template) {
+    if (event.target.className == 'delete' || event.target.parentNode.className == 'delete') {
+      if (confirm('are you sure you want to delete quote W' + this.quoteId + '?')) {
+        Quotes.update({_id : this._id}, {$set : {deleted: 1}});
+      }
+      return;
+    }
+    Template.instance().active.set(this._id);
+  },
 });
 
 Template.QuotesEdit.helpers(quotesHelpers);
@@ -168,7 +185,7 @@ Template.QuotesEdit.events({
     //strip out commas and $ from the shipping so we store the shipping as a float
     var shipping = template.$(event.target).val().replace(/[$,]/g, "");
     Quotes.update(template.data.quote._id, {$set: {shipping: shipping}});
-    Meteor.call('updateQuote', template.data.quote._id);
+    Meteor.call('updateQuote', Session.get('currentQuoteId'));
   },
   "click #invoice": function (event, template) {
     Quotes.update(template.data.quote._id, {$set: {invoiced: true}});
